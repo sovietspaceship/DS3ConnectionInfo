@@ -84,21 +84,14 @@ namespace DS3ConnectionInfo
                                 GridLength.Auto, GridLength.Auto, GridLength.Star(1)},
                     Children =
                     {
-                        new Cell("Slot") { Stroke = StrokeHeader, Color = White },
                         new Cell("Char. Name") { Stroke = StrokeHeader, Color = White },
                         new Cell("Team") { Stroke = StrokeHeader, Color = White },
-                        new Cell("Steam Name") { Stroke = StrokeHeader, Color = White },
-                        new Cell("Steam ID 64") { Stroke = StrokeHeader, Color = White },
                         new Cell("Ping") { Stroke = StrokeHeader, Color = White },
-                        new Cell("Location") { Stroke = StrokeHeader, Color = White },
                         Player.ActivePlayers().Select(player =>
                         {
                             var cells = new List<Cell>();
-                            cells.Add(new Cell(player.CharSlot) { Align = Align.Center});
                             cells.Add(new Cell(player.CharName));
                             cells.Add(new Cell(player.TeamName));
-                            cells.Add(new Cell(player.SteamName));
-                            cells.Add(new Cell(player.SteamID));
                             if (player.Ip != null)
                             {
                                 ConsoleColor pingColor;
@@ -122,12 +115,10 @@ namespace DS3ConnectionInfo
                                         break;
                                 }
                                 cells.Add(new Cell(ping) { Color = pingColor, Align = Align.Center});
-                                cells.Add(new Cell(player.Region));
                             }
                             else
                             {
                                 cells.Add(new Cell("N/A"));
-                                cells.Add(new Cell("[STEAM RELAY]"));
                             }
                             return cells;
                         })
