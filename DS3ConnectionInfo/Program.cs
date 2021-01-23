@@ -75,13 +75,11 @@ namespace DS3ConnectionInfo
             LineThickness StrokeHeader = LineThickness.Double;
 
             var doc = new Document(
-                new Span("Dark Souls III: Open\n") { Color = Yellow },
                 new Grid
                 {
                     Stroke = StrokeHeader,
                     StrokeColor = DarkGray,
-                    Columns = { GridLength.Auto, GridLength.Auto, GridLength.Auto, GridLength.Auto, 
-                                GridLength.Auto, GridLength.Auto, GridLength.Star(1)},
+                    Columns = { GridLength.Auto, GridLength.Auto, GridLength.Auto },
                     Children =
                     {
                         new Cell("Char. Name") { Stroke = StrokeHeader, Color = White },
